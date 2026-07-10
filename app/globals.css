@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.cdnfonts.com/css/clash-display');
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2396AF #1A202C;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1A202C;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2396AF;
+    border-radius: 3px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-charcoal text-soft font-body antialiased;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-28 px-4;
+  }
+
+  .container-tight {
+    @apply max-w-6xl mx-auto;
+  }
+
+  .glass {
+    background: rgba(15, 76, 92, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(35, 150, 175, 0.1);
+  }
+
+  .glass-strong {
+    background: rgba(15, 76, 92, 0.3);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(35, 150, 175, 0.2);
+  }
+
+  .glass-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-hover:hover {
+    background: rgba(15, 76, 92, 0.25);
+    border-color: rgba(35, 150, 175, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(35, 150, 175, 0.1);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm transition-all duration-300;
+    background: linear-gradient(135deg, #2396AF, #0F4C5C);
+    color: #EDF2F7;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 4px 20px rgba(35, 150, 175, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm transition-all duration-300;
+    border: 1px solid rgba(35, 150, 175, 0.3);
+    color: #2396AF;
+  }
+  .btn-outline:hover {
+    background: rgba(35, 150, 175, 0.1);
+    border-color: #2396AF;
+    box-shadow: 0 4px 20px rgba(35, 150, 175, 0.15);
+  }
+
+  .section-label {
+    @apply text-xs font-medium tracking-[0.2em] uppercase text-teal-bright mb-3 block;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-white mb-4 font-display;
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-teal-bright to-cyan-300;
+  }
+
+  .card {
+    @apply glass rounded-2xl p-6 glass-hover;
+  }
+
+  .tag {
+    @apply px-3 py-1 rounded-lg text-xs font-medium border;
+    background: rgba(35, 150, 175, 0.08);
+    border-color: rgba(35, 150, 175, 0.15);
+    color: #2396AF;
+  }
+}
