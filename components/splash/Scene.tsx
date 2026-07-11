@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import AmbientLighting from "./AmbientLighting";
 
 export default function Scene() {
   const groupRef = useRef<THREE.Group>(null);
@@ -16,9 +17,7 @@ export default function Scene() {
 
   return (
     <>
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[2, 3, 4]} intensity={0.8} color="#3082C5" />
-      <directionalLight position={[-2, -1, 2]} intensity={0.3} color="#3082C5" />
+      <AmbientLighting />
 
       <group ref={groupRef}>
         {/* Portrait placeholder — will be replaced with 3D layered portrait */}

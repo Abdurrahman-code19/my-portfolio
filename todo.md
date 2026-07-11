@@ -140,7 +140,7 @@ A premium 1.5–2.5s cinematic opening sequence that introduces me as a frontend
 
 ### Build Phase
 1. [x] Splash container + canvas setup
-2. [ ] Ambient lighting system
+2. [x] Ambient lighting system
 3. [ ] Glass fragment / geometric portrait reveal
 4. [ ] 3D depth layer system for portrait
 5. [ ] Glass frame (frosted + glow border)
