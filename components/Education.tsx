@@ -53,7 +53,7 @@ export default function Education() {
                 <div className="flex-1">
                   <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
                     <h3 className="text-text-primary font-semibold">{edu.degree}</h3>
-                    <span className="text-xs text-text-muted font-mono">{edu.year}</span>
+                    <span className="text-xs text-text-muted">{edu.year}</span>
                   </div>
                   <p className="text-sm text-accent mb-2">{edu.school}</p>
                   <p className="text-sm text-text-body leading-relaxed">{edu.desc}</p>

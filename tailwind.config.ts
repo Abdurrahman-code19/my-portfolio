@@ -29,9 +29,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["Clash Display", "sans-serif"],
-        body: ["Inter", "sans-serif"],
-        mono: ["Fira Code", "monospace"],
+        display: ["Nohemi", "sans-serif"],
+        body: ["Geist", "sans-serif"],
       },
       borderRadius: {
         sm: "12px",

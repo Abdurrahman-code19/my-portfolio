@@ -55,7 +55,7 @@ export default function Experience() {
             >
               <div className="absolute -left-[calc(2rem+6px)] md:-left-[calc(3rem+6px)] top-1 timeline-dot group-hover:scale-125" />
               <div className="card !p-6">
-                <p className="text-xs text-accent font-mono mb-1">{job.period}</p>
+                <p className="text-xs text-accent mb-1">{job.period}</p>
                 <h3 className="text-text-primary font-semibold text-lg">{job.role}</h3>
                 <p className="text-sm text-text-muted mb-3">{job.org}</p>
                 <p className="text-sm text-text-body leading-relaxed mb-3">{job.desc}</p>
