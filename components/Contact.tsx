@@ -35,8 +35,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding bg-charcoal relative">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-dark/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="contact" className="section-padding bg-navy-primary relative">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container-tight relative z-10">
         <motion.div
@@ -48,7 +48,7 @@ export default function Contact() {
         >
           <span className="section-label">Get in Touch</span>
           <h2 className="section-title">Contact</h2>
-          <p className="text-soft/50 max-w-md">
+          <p className="text-text-muted max-w-md">
             Have a project, opportunity, or just want to say hello? Reach out.
           </p>
         </motion.div>
@@ -68,16 +68,19 @@ export default function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center py-12 text-center"
                 >
-                  <CheckCircle2 size={44} className="text-teal-bright mb-4" />
-                  <p className="text-white font-semibold text-lg">Message sent!</p>
-                  <p className="text-sm text-soft/50 mt-1">I&apos;ll respond within 24 hours.</p>
+                  <CheckCircle2 size={44} className="text-accent mb-4" />
+                  <p className="text-text-primary font-semibold text-lg">Message sent!</p>
+                  <p className="text-sm text-text-muted mt-1">I&apos;ll respond within 24 hours.</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-4">
                     {(["name", "email"] as const).map((field) => (
                       <div key={field}>
-                        <label htmlFor={field} className="block text-xs font-medium text-soft/50 mb-1.5 uppercase tracking-wide">
+                        <label
+                          htmlFor={field}
+                          className="block text-xs font-medium text-text-muted mb-1.5 uppercase tracking-wide"
+                        >
                           {field}
                         </label>
                         <input
@@ -86,34 +89,36 @@ export default function Contact() {
                           type={field === "email" ? "email" : "text"}
                           value={form[field]}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-xl bg-charcoal border text-soft placeholder:text-soft/30 text-sm focus:outline-none focus:ring-2 focus:ring-teal-bright/40 transition-all ${
-                            errors[field] ? "border-red-400/50" : "border-teal-bright/10"
-                          }`}
+                          className={`input-field ${errors[field] ? "error" : ""}`}
                           placeholder={field === "name" ? "Your name" : "your@email.com"}
                         />
-                        {errors[field] && <p className="text-[11px] text-red-400 mt-1">{errors[field]}</p>}
+                        {errors[field] && (
+                          <p className="text-[11px] text-red-400 mt-1">{errors[field]}</p>
+                        )}
                       </div>
                     ))}
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-xs font-medium text-soft/50 mb-1.5 uppercase tracking-wide">Message</label>
+                    <label
+                      htmlFor="message"
+                      className="block text-xs font-medium text-text-muted mb-1.5 uppercase tracking-wide"
+                    >
+                      Message
+                    </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={4}
                       value={form.message}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 rounded-xl bg-charcoal border text-soft placeholder:text-soft/30 text-sm focus:outline-none focus:ring-2 focus:ring-teal-bright/40 transition-all resize-none ${
-                        errors.message ? "border-red-400/50" : "border-teal-bright/10"
-                      }`}
+                      className={`input-field resize-none ${errors.message ? "error" : ""}`}
                       placeholder="Tell me about your project..."
                     />
-                    {errors.message && <p className="text-[11px] text-red-400 mt-1">{errors.message}</p>}
+                    {errors.message && (
+                      <p className="text-[11px] text-red-400 mt-1">{errors.message}</p>
+                    )}
                   </div>
-                  <button
-                    type="submit"
-                    className="btn-primary w-full justify-center"
-                  >
+                  <button type="submit" className="btn-primary w-full justify-center">
                     <Send size={14} />
                     Send Message
                   </button>
@@ -135,16 +140,21 @@ export default function Contact() {
               { icon: MapPin, label: "Location", value: "Lagos, Nigeria", href: null },
             ].map((info) => (
               <div key={info.label} className="card !p-5">
-                <p className="text-xs text-soft/40 uppercase tracking-wide mb-1">{info.label}</p>
+                <p className="text-xs text-text-muted uppercase tracking-wide mb-1">{info.label}</p>
                 {info.href ? (
-                  <a href={info.href} className="text-soft hover:text-teal-bright text-sm transition-colors">{info.value}</a>
+                  <a
+                    href={info.href}
+                    className="text-text-primary hover:text-accent text-sm transition-colors duration-[.35s]"
+                  >
+                    {info.value}
+                  </a>
                 ) : (
-                  <p className="text-soft text-sm">{info.value}</p>
+                  <p className="text-text-primary text-sm">{info.value}</p>
                 )}
               </div>
             ))}
             <div className="card !p-5">
-              <p className="text-xs text-soft/40 uppercase tracking-wide mb-3">Social</p>
+              <p className="text-xs text-text-muted uppercase tracking-wide mb-3">Social</p>
               <div className="flex gap-2">
                 {[
                   { icon: Github, label: "GitHub", href: "https://github.com/Abdurrahman-code19" },
@@ -152,8 +162,12 @@ export default function Contact() {
                   { icon: Twitter, label: "Twitter", href: "#" },
                   { icon: Mail, label: "Email", href: "mailto:abefeori@gmail.com" },
                 ].map((s) => (
-                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                    className="p-2.5 rounded-lg glass glass-hover text-soft/50 hover:text-teal-bright transition-colors"
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 rounded-[12px] bg-navy-secondary border border-accent-border text-text-muted hover:text-accent hover:border-accent transition-all duration-[.35s]"
                     aria-label={s.label}
                   >
                     <s.icon size={16} />

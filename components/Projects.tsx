@@ -20,7 +20,7 @@ const projects = [
   },
   {
     title: "Personal Portfolio Website",
-    desc: "Premium single-page portfolio built with Next.js 14, featuring interactive canvas particles, teal-themed glassmorphism, and smooth scroll animations.",
+    desc: "Premium single-page portfolio built with Next.js 14, featuring interactive canvas particles, deep navy theme, and smooth scroll animations.",
     tech: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
     live: "#",
     code: "https://github.com/Abdurrahman-code19/my-portfolio",
@@ -29,8 +29,8 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-padding bg-[#1A202C]/60 relative">
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-teal-dark/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="projects" className="section-padding bg-navy-primary relative">
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container-tight relative z-10">
         <motion.div
@@ -42,7 +42,7 @@ export default function Projects() {
         >
           <span className="section-label">Portfolio</span>
           <h2 className="section-title">Projects</h2>
-          <p className="text-soft/50 max-w-lg">
+          <p className="text-text-muted max-w-lg">
             Real-world interfaces I&apos;ve built — from hackathon prototypes to production platforms.
           </p>
         </motion.div>
@@ -55,27 +55,37 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="card group flex flex-col"
+              className="card flex flex-col !p-6 group"
             >
-              <div className="w-10 h-10 rounded-xl bg-teal-dark/30 flex items-center justify-center mb-4 text-teal-bright group-hover:scale-110 transition-transform">
+              <div className="w-10 h-10 rounded-[12px] bg-accent/15 flex items-center justify-center mb-4 text-accent group-hover:scale-110 transition-transform duration-[.35s]">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <rect x="2" y="3" width="20" height="14" rx="2" />
                   <path d="M8 21h8" />
                   <path d="M12 17v4" />
                 </svg>
               </div>
-              <h3 className="text-white font-semibold mb-2 text-lg">{p.title}</h3>
-              <p className="text-sm text-soft/60 leading-relaxed mb-4 flex-1">{p.desc}</p>
+              <h3 className="text-text-primary font-semibold mb-2 text-lg">{p.title}</h3>
+              <p className="text-sm text-text-body leading-relaxed mb-4 flex-1">{p.desc}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {p.tech.map((t) => (
                   <span key={t} className="tag">{t}</span>
                 ))}
               </div>
-              <div className="flex gap-3 pt-3 border-t border-teal-bright/10">
-                <a href={p.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-soft/50 hover:text-teal-bright transition-colors">
+              <div className="flex gap-3 pt-3 border-t border-accent-border">
+                <a
+                  href={p.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs text-text-muted hover:text-accent transition-colors duration-[.35s]"
+                >
                   <ExternalLink size={12} /> Live
                 </a>
-                <a href={p.code} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-soft/50 hover:text-teal-bright transition-colors">
+                <a
+                  href={p.code}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs text-text-muted hover:text-accent transition-colors duration-[.35s]"
+                >
                   <Github size={12} /> Code
                 </a>
               </div>

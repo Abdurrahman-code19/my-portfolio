@@ -28,8 +28,8 @@ const jobs = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-padding bg-[#1A202C]/60 relative">
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-teal-dark/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="experience" className="section-padding bg-navy-primary relative">
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container-tight relative z-10">
         <motion.div
@@ -43,7 +43,7 @@ export default function Experience() {
           <h2 className="section-title">Work Experience</h2>
         </motion.div>
 
-        <div className="relative pl-8 md:pl-12 border-l border-teal-bright/15 space-y-8 max-w-3xl mx-auto">
+        <div className="relative pl-8 md:pl-12 border-l border-accent/30 space-y-8 max-w-3xl mx-auto">
           {jobs.map((job, i) => (
             <motion.div
               key={job.role}
@@ -53,12 +53,12 @@ export default function Experience() {
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="relative group"
             >
-              <div className="absolute -left-[calc(2rem+5px)] md:-left-[calc(3rem+5px)] top-1 w-3 h-3 rounded-full bg-teal-bright border-2 border-charcoal group-hover:scale-125 transition-transform duration-300" />
-              <div className="card">
-                <p className="text-xs text-teal-bright font-mono mb-1">{job.period}</p>
-                <h3 className="text-white font-semibold text-lg">{job.role}</h3>
-                <p className="text-sm text-soft/50 mb-3">{job.org}</p>
-                <p className="text-sm text-soft/60 leading-relaxed mb-3">{job.desc}</p>
+              <div className="absolute -left-[calc(2rem+6px)] md:-left-[calc(3rem+6px)] top-1 timeline-dot group-hover:scale-125" />
+              <div className="card !p-6">
+                <p className="text-xs text-accent font-mono mb-1">{job.period}</p>
+                <h3 className="text-text-primary font-semibold text-lg">{job.role}</h3>
+                <p className="text-sm text-text-muted mb-3">{job.org}</p>
+                <p className="text-sm text-text-body leading-relaxed mb-3">{job.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {job.tags.map((t) => (
                     <span key={t} className="tag">{t}</span>

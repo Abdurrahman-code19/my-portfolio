@@ -38,7 +38,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="section-padding bg-charcoal">
+    <section id="testimonials" className="section-padding bg-navy-secondary">
       <div className="container-tight">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -64,12 +64,12 @@ export default function Testimonials() {
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 className="absolute w-full"
               >
-                <Quote size={32} className="text-teal-bright/30 mx-auto mb-6" />
-                <p className="text-lg text-soft/80 leading-relaxed mb-6 italic">
+                <Quote size={32} className="text-accent/30 mx-auto mb-6" />
+                <p className="text-lg text-text-body leading-relaxed mb-6 italic">
                   &ldquo;{testimonials[current].quote}&rdquo;
                 </p>
-                <p className="text-white font-semibold">{testimonials[current].name}</p>
-                <p className="text-sm text-soft/40">{testimonials[current].role}</p>
+                <p className="text-text-primary font-semibold">{testimonials[current].name}</p>
+                <p className="text-sm text-text-muted">{testimonials[current].role}</p>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -77,7 +77,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={() => goTo(current === 0 ? testimonials.length - 1 : current - 1)}
-              className="p-2 rounded-lg glass text-soft/50 hover:text-teal-bright hover:bg-teal-dark/20 transition-all"
+              className="p-2 rounded-[12px] bg-navy-secondary border border-accent-border text-text-muted hover:text-accent hover:border-accent transition-all duration-[.35s]"
             >
               <ChevronLeft size={18} />
             </button>
@@ -86,15 +86,15 @@ export default function Testimonials() {
                 <button
                   key={i}
                   onClick={() => goTo(i)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    i === current ? "bg-teal-bright w-6" : "bg-soft/20 hover:bg-soft/40"
+                  className={`h-2 rounded-full transition-all duration-[.35s] ${
+                    i === current ? "bg-accent w-6" : "bg-text-muted/20 hover:bg-text-muted/40 w-2"
                   }`}
                 />
               ))}
             </div>
             <button
               onClick={() => goTo(current === testimonials.length - 1 ? 0 : current + 1)}
-              className="p-2 rounded-lg glass text-soft/50 hover:text-teal-bright hover:bg-teal-dark/20 transition-all"
+              className="p-2 rounded-[12px] bg-navy-secondary border border-accent-border text-text-muted hover:text-accent hover:border-accent transition-all duration-[.35s]"
             >
               <ChevronRight size={18} />
             </button>

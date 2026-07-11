@@ -11,7 +11,7 @@ const certs = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="section-padding bg-charcoal">
+    <section id="certifications" className="section-padding bg-navy-secondary">
       <div className="container-tight">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -32,19 +32,19 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="card group"
+              className="card !p-6 group"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg bg-teal-dark/30 text-teal-bright">
+                <div className="p-2.5 rounded-[12px] bg-accent/15 text-accent">
                   <Award size={18} />
                 </div>
-                <span className="text-xs text-teal-bright font-medium">{cert.provider}</span>
+                <span className="text-xs text-accent font-medium">{cert.provider}</span>
               </div>
-              <h3 className="text-white font-semibold mb-2">{cert.name}</h3>
-              <p className="text-xs text-soft/40 mb-4">{cert.year}</p>
+              <h3 className="text-text-primary font-semibold mb-2">{cert.name}</h3>
+              <p className="text-xs text-text-muted mb-4">{cert.year}</p>
               <a
                 href={cert.link}
-                className="inline-flex items-center gap-1.5 text-xs text-teal-bright hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs text-accent hover:text-text-primary transition-colors duration-[.35s]"
               >
                 <ExternalLink size={12} />
                 View Certificate

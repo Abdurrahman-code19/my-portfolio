@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Eye } from "lucide-react";
+import { ArrowDown, Eye } from "lucide-react";
 import Image from "next/image";
 
 const roles = [
@@ -23,7 +23,7 @@ export default function Hero() {
 
     let animId: number;
     const particles: { x: number; y: number; vx: number; vy: number; s: number; a: number }[] = [];
-    const count = 60;
+    const count = 50;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -36,10 +36,10 @@ export default function Hero() {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        s: Math.random() * 3 + 1,
-        a: Math.random() * 0.4 + 0.1,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        s: Math.random() * 2.5 + 0.5,
+        a: Math.random() * 0.3 + 0.05,
       });
     }
 
@@ -53,10 +53,9 @@ export default function Hero() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(35, 150, 175, ${p.a})`;
+        ctx.fillStyle = `rgba(48, 130, 197, ${p.a})`;
         ctx.fill();
 
-        // draw connections
         particles.forEach((p2) => {
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
@@ -65,7 +64,7 @@ export default function Hero() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(35, 150, 175, ${0.06 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(48, 130, 197, ${0.04 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -82,27 +81,30 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-primary"
+    >
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none" />
 
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-transparent via-charcoal/50 to-charcoal pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-transparent via-navy-primary/60 to-navy-primary pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center min-h-screen">
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center min-h-screen">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.p
             className="section-label"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.6 }}
+            transition={{ delay: 0.15, duration: 0.5 }}
           >
             Welcome to my portfolio
           </motion.p>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-4 font-display">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary tracking-tight leading-[1.1] mb-4 font-display">
             I&apos;m{" "}
             <span className="gradient-text">Abdurrahman</span>
           </h1>
@@ -121,7 +123,7 @@ export default function Hero() {
             ))}
           </div>
 
-          <p className="text-base sm:text-lg text-soft/60 max-w-xl mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg text-text-body max-w-xl mb-8 leading-relaxed">
             I craft polished, performant web interfaces with modern frontend technologies.
             Pixel-perfect. Responsive. Human-centered.
           </p>
@@ -131,17 +133,16 @@ export default function Hero() {
               <Eye size={16} />
               View Projects
             </a>
-            <a href="/my-cv.pdf" download className="btn-outline">
-              <Download size={16} />
+            <a href="/my-cv.pdf" download className="btn-secondary">
               Download CV
             </a>
           </div>
 
           <motion.div
-            className="hidden lg:flex items-center gap-8 mt-12 pt-8 border-t border-teal-bright/10"
+            className="hidden lg:flex items-center gap-8 mt-12 pt-8 border-t border-accent-border"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
           >
             {[
               { label: "Experience", value: "2+" },
@@ -149,8 +150,8 @@ export default function Hero() {
               { label: "Certifications", value: "3+" },
             ].map((s) => (
               <div key={s.label}>
-                <p className="text-2xl font-bold text-white font-display">{s.value}</p>
-                <p className="text-xs text-soft/40">{s.label}</p>
+                <p className="text-2xl font-bold text-text-primary font-display">{s.value}</p>
+                <p className="text-xs text-text-muted">{s.label}</p>
               </div>
             ))}
           </motion.div>
@@ -162,8 +163,8 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="relative">
-            <div className="w-72 h-72 rounded-full overflow-hidden border-2 border-teal-bright/20 shadow-2xl shadow-teal-dark/30 animate-glow">
+          <div className="relative group">
+            <div className="w-72 h-72 rounded-[20px] overflow-hidden shadow-lg shadow-glow transition-all duration-[.35s] group-hover:scale-[1.02]">
               <Image
                 src="/profile.jpg"
                 alt="Abdurrahman Oriolowo"
@@ -173,8 +174,13 @@ export default function Hero() {
                 priority
               />
             </div>
-            <div className="absolute -inset-4 rounded-full border border-teal-bright/10 animate-float pointer-events-none" />
-            <div className="absolute -inset-8 rounded-full border border-teal-bright/5 animate-float pointer-events-none" style={{ animationDelay: "1s" }} />
+            <div
+              className="absolute -inset-3 rounded-[24px] border border-accent-border animate-float pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-[.35s]"
+            />
+            <div
+              className="absolute -inset-6 rounded-[28px] border border-accent/10 animate-float pointer-events-none opacity-30"
+              style={{ animationDelay: "1s" }}
+            />
           </div>
         </motion.div>
       </div>
@@ -184,7 +190,7 @@ export default function Hero() {
         animate={{ y: [0, 6, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: [0.16, 1, 0.3, 1] }}
       >
-        <a href="#about" className="block text-soft/40 hover:text-teal-bright transition-colors">
+        <a href="#about" className="block text-text-muted hover:text-accent transition-colors duration-[.35s]">
           <ArrowDown size={20} />
         </a>
       </motion.div>

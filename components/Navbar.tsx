@@ -23,40 +23,36 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const linkClass = (href: string) =>
+    `px-3 py-2 text-sm text-text-primary/70 hover:text-accent transition-colors duration-[.35s] rounded-lg hover:bg-accent/10`;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "glass-strong shadow-lg shadow-teal-dark/10"
-          : "bg-transparent"
+        scrolled ? "nav-glass shadow-md" : "bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#hero" className="text-xl font-bold font-display text-white tracking-tight">
-          AO<span className="text-teal-bright">.</span>
+      <nav className="max-w-[1280px] mx-auto px-4 h-16 flex items-center justify-between">
+        <a
+          href="#hero"
+          className="text-xl font-bold font-display text-text-primary tracking-tight"
+        >
+          AO<span className="text-accent">.</span>
         </a>
 
         <div className="hidden md:flex items-center gap-1">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="px-3 py-2 text-sm text-soft/70 hover:text-teal-bright transition-colors rounded-lg hover:bg-teal-dark/20"
-            >
+            <a key={l.href} href={l.href} className={linkClass(l.href)}>
               {l.label}
             </a>
           ))}
-          <a
-            href="/my-cv.pdf"
-            download
-            className="ml-3 btn-primary text-xs !px-4 !py-2"
-          >
+          <a href="/my-cv.pdf" download className="btn-primary !text-xs !px-4 !py-2 ml-3">
             Download CV
           </a>
         </div>
 
         <button
-          className="md:hidden p-2 text-soft hover:text-teal-bright transition-colors"
+          className="md:hidden p-2 text-text-primary hover:text-accent transition-colors"
           onClick={() => setOpen(true)}
           aria-label="Menu"
         >
@@ -72,16 +68,22 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 md:hidden"
           >
-            <div className="absolute inset-0 bg-charcoal/95 backdrop-blur-xl" onClick={() => setOpen(false)} />
+            <div
+              className="absolute inset-0 bg-navy-primary/95 backdrop-blur-xl"
+              onClick={() => setOpen(false)}
+            />
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 h-full w-3/4 max-w-sm glass-strong p-6"
+              className="absolute right-0 top-0 h-full w-3/4 max-w-sm bg-navy-secondary p-6 border-l border-accent-border"
             >
               <div className="flex justify-end mb-8">
-                <button onClick={() => setOpen(false)} className="p-2 text-soft hover:text-teal-bright">
+                <button
+                  onClick={() => setOpen(false)}
+                  className="p-2 text-text-primary hover:text-accent transition-colors"
+                >
                   <X size={22} />
                 </button>
               </div>
@@ -91,7 +93,7 @@ export default function Navbar() {
                     key={l.href}
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="px-4 py-3 text-lg text-soft/80 hover:text-teal-bright hover:bg-teal-dark/20 rounded-xl transition-all"
+                    className="px-4 py-3 text-lg text-text-primary/80 hover:text-accent hover:bg-accent/10 rounded-xl transition-all"
                   >
                     {l.label}
                   </a>
@@ -99,7 +101,7 @@ export default function Navbar() {
                 <a
                   href="/my-cv.pdf"
                   download
-                  className="mt-4 btn-primary justify-center"
+                  className="btn-primary justify-center mt-4"
                   onClick={() => setOpen(false)}
                 >
                   Download CV
