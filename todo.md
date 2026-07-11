@@ -139,19 +139,19 @@ A premium 1.5–2.5s cinematic opening sequence that introduces me as a frontend
 - [ ] Design transition timeline (0s → 2.5s)
 
 ### Build Phase
-1. Splash container + canvas setup
-2. Ambient lighting system
-3. Glass fragment / geometric portrait reveal
-4. 3D depth layer system for portrait
-5. Glass frame (frosted + glow border)
-6. Floating animation (y-axis + rotation)
-7. Light sweep effect
-8. Camera movement (cinematic push-in)
-9. Hero transition logic (blend splash → hero)
-10. Floating glass ambient elements
-11. Hero content fade-in orchestration
-12. Performance optimization pass
-13. Polish + easing pass
+1. [x] Splash container + canvas setup
+2. [ ] Ambient lighting system
+3. [ ] Glass fragment / geometric portrait reveal
+4. [ ] 3D depth layer system for portrait
+5. [ ] Glass frame (frosted + glow border)
+6. [ ] Floating animation (y-axis + rotation)
+7. [ ] Light sweep effect
+8. [ ] Camera movement (cinematic push-in)
+9. [ ] Hero transition logic (blend splash → hero)
+10. [ ] Floating glass ambient elements
+11. [ ] Hero content fade-in orchestration
+12. [ ] Performance optimization pass
+13. [ ] Polish + easing pass
 
 ---
 
